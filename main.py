@@ -7,7 +7,8 @@ app = FastAPI()
 class Item(BaseModel):
     message: str
 
-@app.post("8000/echo")
+@app.post("/echo")
 def echo_data(item: Item):
     return {"you_sent": item}
+
 
