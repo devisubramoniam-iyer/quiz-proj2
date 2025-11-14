@@ -5,15 +5,14 @@ app = FastAPI()
 
 # Define the structure of the request body
 class Item(BaseModel):
-    {
-  "email": "your email",
-  "secret": "your secret",
-  "url": "https://tds-llm-analysis.s-anand.net/demo"
-}
+  email: str,
+  secret: str,
+  url: str
 
 @app.post("/echo")
 def echo_data(item: Item):
     return {"you_sent": item}
+
 
 
 
