@@ -5,7 +5,6 @@ app = FastAPI()
 
 # Define the structure of the request body
 class Item(BaseModel):
-  message: str
   email: str
   secret: str
   url: str
@@ -13,6 +12,7 @@ class Item(BaseModel):
 @app.post("/echo")
 def echo_data(item: Item):
     return {"you_sent": item}
+
 
 
 
