@@ -11,7 +11,8 @@ class Item(BaseModel):
 
 @app.post("/echo")
 def echo_data(item: Item):
-    return {"you_sent": item}
+    return {"you_sent": item.email}
+
 
 
 
