@@ -3,6 +3,8 @@ from pydantic import BaseModel
 from dotenv import load_dotenv
 import os
 
+from advanced_react_agent_with_tools import run_quiz_agent
+
 # Load .env file
 load_dotenv()
 
@@ -30,6 +32,8 @@ def handle_quiz(data: QuizRequest):
     # Check secret
     if data.secret != SECRET:
         raise HTTPException(status_code=403, detail="Forbidden: Invalid secret")
+    
+    run_quiz_agent(data.email, data.secret, data.url)
 
     return {
         "message": "Request received successfully",
